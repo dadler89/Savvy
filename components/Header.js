@@ -1,8 +1,13 @@
-export default () => `<header>
+export default (st) => `    <header>
 <img
   src="../images/logo.png"
-  alt="Daily Line-up"
+  alt="Daily"
+
+
+
   width="100"
   height="100"
 />
+
+<input type="text" name="search" placeholder="Search.." />
 </header>`;
