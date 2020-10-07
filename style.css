@@ -49,6 +49,9 @@ header > a {
   background-color: #0069cc;
   overflow: hidden;
   grid-area: topnav;
+  align-content: flex-start;
+  display: flex;
+  text-decoration: none;
 }
 
 /* Style the links inside the navigation bar */
@@ -66,12 +69,6 @@ header > a {
 .navBar a:hover {
   background-color: #ddd;
   color: black;
-}
-
-/* Add a color to the active/current link */
-.navBar a.active {
-  background-color: #dda448;
-  color: white;
 }
 
 /* Main Body */
