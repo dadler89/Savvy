@@ -1,4 +1,4 @@
 export default [
   { title: "Home", text: "Starting Goalie" },
-  { title: "Lineup", text: "Lineup" },
+  { title: "Lineup", text: "Line-up Tweets" },
 ];
