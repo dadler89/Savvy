@@ -76,7 +76,7 @@ header > a {
 
 /* Main Body */
 
-main {
+.mainTop {
   background: #dda448;
   grid-area: main;
   border: 5px solid #0069cc;
