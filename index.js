@@ -8,11 +8,12 @@ import * as state from "./store";
 import { Header, Nav, Main, Footer } from "./components";
 
 // add menu toggle to bars icon in nav bar
+const router = new Navigo(window.location.origin);
 
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
   ${Header(st)}
-  ${Nav(state.link)}
+  ${Nav(state.Links)}
   ${Main(st)}
   ${Footer()}
   `;
@@ -21,11 +22,11 @@ function render(st = state.Home) {
 
 render(state.Home);
 
-const router = new Navigo(window.location.origin);
-
-router.on({
-  "/": () => (params) => {
-    let page = capitalize(params.page);
-    render(state[page]);
-  },
-});
+router
+  .on({
+    ":page": params => {
+      render(state[capitalize(params.page)]);
+    },
+    "/": () => render(state.Home),
+  })
+  .resolve();

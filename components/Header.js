@@ -1,4 +1,4 @@
-export default (st) => `    <header>
+export default st => `    <header>
 <img
   src="../images/logo.png"
   alt="Daily"
