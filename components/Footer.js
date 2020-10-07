@@ -13,7 +13,7 @@ export default () => `<footer>
   <input type="submit" value="Contact Us" />
 </form>
 <ul>
-  <li>My links</li>
+  <li>Find Me</li>
   <li><a href="https://alexadler.tech/"> My Portfolio</a></li>
   <li><a href="https://github.com/dadler89">My Github</a></li>
 </ul>
