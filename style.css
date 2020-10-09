@@ -43,15 +43,14 @@ header > a {
   font-family: "OSWALD";
 }
 
+
+
 /* Nav Bar Stuff */
 /* Add a black background color to the top navigation */
 .navBar {
   background-color: #0069cc;
   overflow: hidden;
-  grid-area: topnav;
-  align-content: flex-start;
-  display: flex;
-  text-decoration: none;
+
 }
 
 /* Style the links inside the navigation bar */
@@ -69,6 +68,12 @@ header > a {
 .navBar a:hover {
   background-color: #dda448;
   color: black;
+}
+
+.navBar ul {
+  align-content: flex-start;
+  display: flex;
+  text-decoration: none;
 }
 
 /* Main Body */
@@ -168,11 +173,17 @@ footer {
     width: 100%;
     margin: 0;
     padding: 14px;
+
   }
   .nav input[type="text"] {
     border: 1px solid #ccc;
   }
 }
+
+@media (max-width: 549px) {
+  .hidden--mobile {
+    display: none !important;
+  }
 
 @media only screen and (max-width: 550px) {
   .container {
@@ -209,36 +220,7 @@ footer {
   padding: 10px;
 }
 
-/*Nav Bar Stuff
- Add a black background color to the top navigation */
-.navBar2 {
-  background-color: #0069cc;
-  overflow: hidden;
-  grid-area: topnav2;
-}
 
-/* Style the links inside the navigation bar */
-.navBar2 a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  font-family: Oswald;
-}
-
-/* Change the color of links on hover */
-.navBar2 a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.navBar2 a.active {
-  background-color: #dda448;
-  color: white;
-}
 
 .sidebarLeft {
   background: #0069cc;

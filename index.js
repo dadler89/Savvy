@@ -18,15 +18,24 @@ function render(st = state.Home) {
   ${Footer()}
   `;
   router.updatePageLinks();
+  addNavEventListeners();
 }
 
 render(state.Home);
 
 router
   .on({
-    ":page": params => {
-      render(state[capitalize(params.page)]);
-    },
     "/": () => render(state.Home),
+    ":page": params => render(state[capitalize(params.page)]),
   })
   .resolve();
+
+
+  function addNavEventListeners() {
+    // add menu toggle to bars icon in nav bar
+    document
+      .querySelector(".fa-bars")
+      .addEventListener("click", () =>
+        document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+      );
+  }

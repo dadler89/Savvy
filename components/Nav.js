@@ -1,10 +1,12 @@
-export default links => `<nav class="nav"><div class="navBar">
 
-
-  ${links
-    .map(
-      link => `<li><a href="/${links.title}" data-navigo>${link.text}</a></li>`
-    )
-    .join("")}
-  </div>
+  export default links => `
+  <nav class="navBar">
+    <i class="fas fa-bars"></i>
+    <ul class="hidden--mobile nav-links">
+    ${links
+      .map(
+        link => `<li><a href="/${link.title}" data-navigo>${link.text}</a></li>`
+      )
+      .join("")}
+    </ul>
   </nav>`;
