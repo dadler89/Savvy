@@ -12,6 +12,37 @@
   padding: 10px;
 }
 
+#lineup {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.7fr 1.1fr 1.1fr 1fr;
+  grid-template-rows: 1.1fr 1.2fr 1.4fr 1.4fr;
+  grid-template-areas:
+    "sidebarLeft content content content"
+    "sidebarLeft content content content"
+    "sidebarLeft content content content"
+    "sidebarLeft content content content";
+  background-color: #0069cc;
+  padding: 10px;
+}
+
+.sidebarLeft {
+  grid-area: sidebarLeft;
+  background: #0069cc;
+  border: 2px solid #dda448;
+  border-radius: 10px;
+}
+
+.lineupContent {
+  grid-area: content;
+  background: #fcfff7;
+  border-radius: 10px;
+  display: flex;
+  float: right;
+  grid-area: content;
+  margin-left: 5px;
+}
+
 /* HEADER AND SEARCH BAR */
 
 header {
@@ -19,7 +50,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: rgb(223, 223, 223);
+  background-color: #fcfff7;
 }
 
 header > a {
@@ -43,20 +74,17 @@ header > a {
   font-family: "OSWALD";
 }
 
-
-
 /* Nav Bar Stuff */
 /* Add a black background color to the top navigation */
 .navBar {
   background-color: #0069cc;
   overflow: hidden;
-
 }
 
 /* Style the links inside the navigation bar */
 .navBar a {
   float: left;
-  color: lightgray;
+  color: #fcfff7;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -73,7 +101,7 @@ header > a {
 .navBar ul {
   align-content: flex-start;
   display: flex;
-  text-decoration: none;
+  list-style-type: none;
 }
 
 /* Main Body */
@@ -92,10 +120,11 @@ header > a {
 #sidebar {
   background: #0069cc;
   grid-area: sidebar;
-  border: 1px solid black;
   text-align: center;
   margin-top: 10px;
   margin-right: 5px;
+  border: 3px solid #dda448;
+  border-radius: 10px;
 }
 
 /* GRID CONTENT AREA */
@@ -164,7 +193,13 @@ footer {
 }
 
 /* MEDIA MOBILE CONTENT */
-@media screen and (max-width: 600px) {
+@media (min-width: 550px) {
+  nav > .a {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
   .nav a,
   .nav input[type="text"] {
     float: none;
@@ -173,61 +208,32 @@ footer {
     width: 100%;
     margin: 0;
     padding: 14px;
-
   }
   .nav input[type="text"] {
     border: 1px solid #ccc;
   }
-}
-
-@media (max-width: 549px) {
   .hidden--mobile {
     display: none !important;
   }
+  #sidebar {
+    display: none !important;
+  }
+}
 
 @media only screen and (max-width: 550px) {
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.6fr 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 0.4fr;
+    grid-template-rows: 0.6fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "topnav"
       "main"
-      "sidebar"
       "grid-item1"
       "grid-item2"
       "grid-item3"
       "grid-item4"
       "grid-item5"
-      "grid-item6"
-      "footer";
+      "grid-item6";
     background: #0069cc;
   }
 }
 
 /* LINE UP TWEET PAGE */
-
-.container-2 {
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 0.3fr 1.5fr 1.6fr 0.3fr;
-  grid-template-rows: 0.4fr 1.5fr 1.6fr 0.2fr;
-  grid-template-areas:
-    "topnav2 topnav2 topnav2 topnav2"
-    "sidebarLeft main main sidebarRight"
-    "sidebarLeft main main sidebarRight"
-    "sidebarLeft footer footer footer";
-  background-color: #0069cc;
-  padding: 10px;
-}
-
-
-
-.sidebarLeft {
-  background: #0069cc;
-  grid-area: sidebarLeft;
-}
-
-.sidebarRight {
-  background: #0069cc;
-  grid-area: sidebarRight;
-}

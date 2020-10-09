@@ -1,5 +1,9 @@
-export default () => `<main>
+export default () => ` <main>
+<section id="lineup">
 <div class="sidebarLeft"></div>
+<div class="lineupContent">
 <h1>content here<h1>
-<div class="sidebarRight"></div>
-</main>`;
+</div>
+</section>
+</main>
+`;

@@ -34,7 +34,7 @@ router
   function addNavEventListeners() {
     // add menu toggle to bars icon in nav bar
     document
-      .querySelector(".fa-bars")
+      .querySelector(".fa-hockey-puck")
       .addEventListener("click", () =>
         document.querySelector("nav > ul").classList.toggle("hidden--mobile")
       );

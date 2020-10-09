@@ -1,7 +1,7 @@
 
   export default links => `
   <nav class="navBar">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa-hockey-puck"></i>
     <ul class="hidden--mobile nav-links">
     ${links
       .map(
