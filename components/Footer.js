@@ -20,7 +20,7 @@ export default () => `<footer>
 
 <div class="linkz">
   <a href="https://github.com/dadler89"><i class="fab fa-github-square"></i></a>
-  <a href="https://alexadler.tech/"> My Portfolio</a>
+  <a href="https://alexadler.tech/">Portfolio</a>
   <a href="https://www.linkedin.com/in/alex-adler-8b078b1b5/"><i class="fab fa-linkedin"></i></a>
 </ul>
 </div>

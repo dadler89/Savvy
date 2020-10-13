@@ -1,13 +1,10 @@
-/* eslint-disable prettier/prettier */
 import Navigo from "navigo";
 import { capitalize } from "lodash";
-// importing all as a Module object
-
+import "./env"
 import * as state from "./store";
-// importing all by name
 import { Header, Nav, Main, Footer } from "./components";
 
-// add menu toggle to bars icon in nav bar
+
 const router = new Navigo(window.location.origin);
 
 function render(st = state.Home) {
@@ -39,3 +36,14 @@ router
         document.querySelector("nav > ul").classList.toggle("hidden--mobile")
       );
   }
+
+
+  import "./env"
+
+axios.get(`https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`,
+{
+  headers: {
+    Authorization: `token ${process.env.GITHUB_TOKEN}`
+    }
+})
+.then(response => console.log(response.data));
