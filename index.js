@@ -1,9 +1,9 @@
 import Navigo from "navigo";
 import { capitalize } from "lodash";
-import "./env"
 import * as state from "./store";
 import { Header, Nav, Main, Footer } from "./components";
-
+import axios from "axios";
+import "./env"
 
 const router = new Navigo(window.location.origin);
 
@@ -44,6 +44,17 @@ axios.get(`https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`,
 {
   headers: {
     Authorization: `token ${process.env.GITHUB_TOKEN}`
+    }
+})
+.then(response => console.log(response.data));
+
+
+
+
+
+axios.get(`https://statsapi.web.nhl.com/api/v1/teams/19/roster`,
+{
+  headers: {
     }
 })
 .then(response => console.log(response.data));

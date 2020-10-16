@@ -15,7 +15,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.5",
     "prettier": "1.19.1",
     "stylelint": "^11.1.1",
     "stylelint-config-prettier": "^6.0.0",
@@ -24,11 +24,17 @@
     "stylelint-vscode": "^7.0.0-6"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.20",
+    "lodash-id": "^0.14.0",
+    "lowdb": "^1.0.0",
+    "morgan": "^1.10.0",
     "navigo": "^7.1.2",
     "node": "^14.8.0",
     "parcel-bundler": "^1.12.4",
+    "save-dev": "0.0.1-security",
     "store": "^2.0.12"
   }
 }
