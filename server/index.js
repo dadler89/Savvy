@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 
 
 
-app.route('/dailylineup').get((req, res) => {
+app.route('/lineup').get((req, res) => {
   pool.query('SELECT * FROM accounts', (err, users) => {
     if (err){
       console.log(err);
