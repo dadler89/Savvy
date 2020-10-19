@@ -40,24 +40,8 @@ router
 
 
 
-axios.get(`https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`,
-{
-  headers: {
-    Authorization: `token ${process.env.GITHUB_TOKEN}`
-    }
-})
-.then(response => console.log(response.data));
 
 
-
-
-
-axios.get(`https://statsapi.web.nhl.com/api/v1/teams/19/roster`,
-{
-  headers: {
-    }
-})
-.then(response => console.log(response.data));
 
 axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020/games/20200813-CHI-VGK/lineup.json`,
 {
