@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "parcel-build": "parcel build index.html && cp _redirects ./dist/",
-    "serve": "parcel index.html",
+    "serve": "parcel index.htm",
     "watch:server": "nodemon --watch ./server -e js ./server/index.js"
   },
   "keywords": [],
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
@@ -35,6 +36,7 @@
     "navigo": "^7.1.2",
     "node": "^14.8.0",
     "parcel-bundler": "^1.12.4",
+    "pg": "^8.4.1",
     "save-dev": "0.0.1-security",
     "store": "^2.0.12"
   }

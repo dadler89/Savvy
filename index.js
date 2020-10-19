@@ -46,7 +46,14 @@ router
 axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020/games/20200813-CHI-VGK/lineup.json`,
 {
   headers: {
-    Authorization: Basic + `${process.env.MSFAPI} + ":" + MYSPORTSFEEDS`
+    Authorization: `Basic BasicN2NjODg5N2ZhNjM1NDM5NWJmMGZlYTBjZmE6TVlTUE9SVFNGRUVEUw==`
     }
 })
-.then(response => console.log(response.data));
+.then(response => console.log(response.data))
+
+function updateName() {
+	putData('http://localhost:8675/api/updateName', { id: 1, name: 'brandon' }) // url and body of the PUT request
+		.then(res => res.json()) // not using axios so i have to .json() the response/ axios does this for you
+		.then(response => console.log(response)) // what i wanna do with the response. for now, just console.log it.
+		.catch(err => console.log(err)); // catches error in case something screws up
+}
