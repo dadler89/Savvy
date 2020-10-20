@@ -4,6 +4,7 @@ import * as state from "./store";
 import { Header, Nav, Main, Footer } from "./components";
 import axios from "axios";
 import "./env"
+import "cors"
 
 const router = new Navigo(window.location.origin);
 
@@ -39,17 +40,17 @@ router
 
 
 
+  axios.get(`http://localhost:8675/api/v1/teams`)
+  .then(response => console.log(response.data))
+  .catch(err => console.log(err));
 
 
 
 
-axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020/games/20200813-CHI-VGK/lineup.json`,
-{
-  headers: {
-    Authorization: `Basic BasicN2NjODg5N2ZhNjM1NDM5NWJmMGZlYTBjZmE6TVlTUE9SVFNGRUVEUw==`
-    }
-})
-.then(response => console.log(response.data))
+
+
+
+
 
 function updateName() {
 	putData('http://localhost:8675/api/updateName', { id: 1, name: 'brandon' }) // url and body of the PUT request
