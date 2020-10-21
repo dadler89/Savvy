@@ -40,9 +40,12 @@ router
 
 
 
-  axios.get(`http://localhost:8675/api/v1/teams`)
-  .then(response => console.log(response.data))
-  .catch(err => console.log(err));
+// axios.get(`http://localhost:8675/api/v1/teams`)
+// .then(response => console.log(response.data))
+// .catch(err => console.log(err));
+
+//   axios.get(`https://statsapi.web.nhl.com/api/v1/teams`)
+// .then(response => console.log(response.data))
 
 
 

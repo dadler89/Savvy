@@ -10,21 +10,23 @@ app.use(cors());
 app.use(express.json());
 
 
-// app.route('/lineup').get((req, res) => {
-//   pool.query('SELECT * FROM accounts', (err, users) => {
-//     if (err){
-//       console.log(err);
-//       res.status(500).json({err});
-//     } else{
-//       res.status(200).send({ peeps: users.rows})
-//       }
-//   });
-// });
+app.route('/api/getPosts').get((req, res) => {
+  pool.query('SELECT * FROM posts', (err, posts) => {
+    if(err){
+      res.status(500).json({err})
+    } else{
+      res.status(200).send({posts: posts.rows})
+    }
+  })
+})
+
+
+
 
 app.listen(8675, () => console.log('Listening on port 8675'));
 
-axios.get(`https://statsapi.web.nhl.com/api/v1/teams`)
-.then(response => console.log(response.data))
+// axios.get(`https://statsapi.web.nhl.com/api/v1/teams`)
+// .then(response => console.log(response.data))
 
 
 
