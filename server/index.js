@@ -1,8 +1,8 @@
-import express from 'express';
-import axios from 'axios';
+const express = require('express');
 const app = express();
-import cors from 'cors';
-const pool = ('./db')
+const cors = require('cors'); // Using the CORS node package because cors is a pain to use, so just use the package instead of fighting with it
+const pool = require('./db');
+
 
 
 
@@ -10,15 +10,15 @@ app.use(cors());
 app.use(express.json());
 
 
-app.route('/api/getPosts').get((req, res) => {
-  pool.query('SELECT * FROM posts', (err, posts) => {
-    if(err){
-      res.status(500).json({err})
-    } else{
-      res.status(200).send({posts: posts.rows})
+app.route("/api/getPosts").get((req, res) => {
+  pool.query("SELECT * FROM posts", (err, posts) => {
+    if (err) {
+      res.status(500).json({ err });
+    } else {
+      res.status(200).send({ posts: posts.rows });
     }
-  })
-})
+  });
+});
 
 
 
@@ -30,27 +30,5 @@ app.listen(8675, () => console.log('Listening on port 8675'));
 
 
 
-//
 
 
-// const express = require('express');
-// const request = require('request');
-// const app = express();
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
-// app.get('/jokes/random', (req, res) => {
-//   request(
-//     { url: 'https://joke-api-strict-cors.appspot.com/jokes/random' },
-//     (error, response, body) => {
-//       if (error || response.statusCode !== 200) {
-//         return res.status(500).json({ type: 'error', message: err.message });
-//       }
-//       res.json(JSON.parse(body));
-//     }
-//   )
-// });
-// // const PORT = process.env.PORT || 8675;
-// // app.listen(PORT, () => console.log(`listening on ${PORT}`));
-// app.listen(8675, () => console.log('Listening on port 8675'));
