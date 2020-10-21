@@ -1,10 +1,11 @@
+import "./env"
 const { Pool } = require('pg');
 
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'test',
-  password: '',
+  password: `${process.env.PGPASS}`,
   port: 5432
 });
 
