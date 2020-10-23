@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors'); // Using the CORS node package because cors is a pain to use, so just use the package instead of fighting with it
 const pool = require('./db');
-
+const axios = require('axios');
 
 
 
@@ -29,6 +29,10 @@ app.listen(8675, () => console.log('Listening on port 8675'));
 // .then(response => console.log(response.data))
 
 
-
-
-
+  axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2020-playoff/games/20200816-VGK-CHI/lineup.json`,
+  {
+    headers: {
+      Authorization: `Basic `
+      }
+  })
+  .then(response => console.log(response.data));

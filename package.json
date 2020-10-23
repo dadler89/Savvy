@@ -8,7 +8,7 @@
     "serve": "parcel index.html",
     "watch:server": "nodemon --watch ./server -e js ./server/index.js"
   },
-  "type": "module",
+
   "keywords": [],
   "author": "",
   "license": "ISC",
