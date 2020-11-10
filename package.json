@@ -6,7 +6,8 @@
   "scripts": {
     "parcel-build": "parcel build index.html && cp _redirects ./dist/",
     "serve": "parcel index.html",
-    "dev": "nodemon --watch ./server -e js ./server/index.js"
+    "watch:server": "nodemon --watch ./server -e js ./server/index.js",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +40,7 @@
     "node": "^14.8.0",
     "parcel-bundler": "^1.12.4",
     "parse-json": "^5.1.0",
+    "path": "^0.12.7",
     "pg": "^8.4.1",
     "save-dev": "0.0.1-security",
     "store": "^2.0.12"
