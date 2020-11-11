@@ -5,31 +5,36 @@ export default () => `<main>
   </div>
 
     <div class="mainTop">
-      <p>
-        Blue - Goalie Unconfirmed<br />
-        Gold - Goalie Probable<br />
-        Red - Goalie Confirmed
-      </p>
+    <input type="date" id="game-date" name="game-date" value='2020-09-07'
+       min="2019-10-01" max="2020-09-28">
+    <select id="chooseSeason">
+    <option value="">--Please choose a Season--</option>
+    <option value="2020-playoff" selected>2020 Playoffs</option>
+    <option value="2019-2020-regular" >2019-2020 Season</option>
+
+    </select>
+    <select id="chooseHome">
+    <option value="">--Please choose a Home Team--</option>
+    <option value="NYI" selected>New York Islanders</option>
+    <option value="TBL" >Tampa Bay Lightening</option>
+    </select>
+    <select id="chooseAway">
+    <option value="">--Please choose Away Team--</option>
+    <option value="TBL" selected>Tampa Bay Lightening</option>
+    <option value="NYI">New York Islanders</option>
+    </select>
+    <button id="submitButton">Submit</button>
+
+
+
     </div>
 
 
-  <div id="grid-item1">
-    1
+  <div id="homeTeam">
+1
   </div>
-  <div id="grid-item2">
+  <div id="awayTeam">
     2
-  </div>
-  <div id="grid-item3">
-    3
-  </div>
-  <div id="grid-item4">
-    4
-  </div>
-  <div id="grid-item5">
-    5
-  </div>
-  <div id="grid-item6">
-    6
   </div>
 
 </main>`;

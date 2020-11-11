@@ -40,7 +40,7 @@ app.use(express.json());
 app.get('/hockey', (req, res) => {
   db.collection('dates').find().toArray((err, result) => {
     if (err) return console.log(err)
-    res.send({dates : result})
+    res.send({info : result})
   })
 })
 
@@ -64,8 +64,8 @@ app.listen(8675, () => console.log('Listening on port 8675'));
   // //  create for each for players.
   // });
 
-// const hockeyData = msf.getData( 'nhl', '2019-2020-regular', 'game_lineup', 'json', {game: `51805`, position:"Goalie-Starter"});
-// console.log(hockeyData);
+const hockeyData = msf.getData( 'nhl', '2019-2020-regular', 'game_lineup', 'json', {game: `51910`, position:"Goalie-Starter"});
+console.log(hockeyData);
 
 
 

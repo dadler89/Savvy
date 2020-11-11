@@ -16,6 +16,8 @@ function render(st = state.Home) {
   ${Footer()}
   `;
   router.updatePageLinks();
+
+  addEventListener();
   addNavEventListeners();
 }
 
@@ -38,28 +40,70 @@ router
       );
   }
 
-
-
-
-
-axios.get(`http://localhost:8675/hockey`)
-.then(response => console.log(response.data))
-.catch(err => console.log(err));
-
-//   axios.get(`https://statsapi.web.nhl.com/api/v1/teams`)
-// .then(response => console.log(response.data))
-
-
-
-
-
-
-
-
-
-function updateName() {
-	putData('http://localhost:8675/api/updateName', { id: 1, name: 'brandon' }) // url and body of the PUT request
-		.then(res => res.json()) // not using axios so i have to .json() the response/ axios does this for you
-		.then(response => console.log(response)) // what i wanna do with the response. for now, just console.log it.
-		.catch(err => console.log(err)); // catches error in case something screws up
+function addEventListener(){
+  document.getElementById('submitButton')
+  .addEventListener("click", () => getData());
 }
+
+
+// axios.get(`http://localhost:8675/hockey`).then(response => {
+//   console.log(response.data.info)});
+  // loop over data and display each game in html
+  // for each game create click handler that passes in game id
+  // click handler should display roster using game id to fetch data from msf
+
+let gameList = []
+
+function getData(){
+  const selectedHomeTeam = document.getElementById('chooseHome').value;
+  console.log(selectedHomeTeam);
+  const selectedAwayTeam = document.getElementById('chooseAway').value;
+  console.log(selectedAwayTeam);
+  const selectedDate = document.getElementById('game-date').value.split("-").join("");
+  console.log(selectedDate);
+  const selectedSeason = document.getElementById('chooseSeason').value;
+  console.log(selectedSeason);
+
+
+
+    axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/${selectedSeason}/games/${selectedDate}-${selectedHomeTeam}-${selectedAwayTeam}/lineup.json`,
+      {
+        headers: {
+          Authorization: `Basic ${process.env.MSFAPI}`
+          },
+        params: {
+          position: 'Goalie-Starter'
+          }
+      }
+
+      )
+      .then(response => {
+        console.log(response.data)
+        /// hide the error if request is valid
+        const gameData = response.data;
+        const homeGoalie = gameData.teamLineups[0].actual.lineupPositions[0].player;
+        const awayGoalie = gameData.teamLineups[1].actual.lineupPositions[0].player;
+        const homeTeamElement = document.getElementById('homeTeam');
+        console.log(homeTeamElement);
+        const awayTeamElement = document.getElementById('awayTeam');
+        homeTeamElement.innerText = `${homeGoalie.firstName} ${homeGoalie.lastName}`
+
+        awayTeamElement.innerText = `${awayGoalie.firstName} ${awayGoalie.lastName}`
+
+    }).catch(err =>{
+      console.log(err);
+      // create error element for html set display === none
+      // get element by id for error element
+      // set display to === block
+      // hide error if selection is valid
+
+    })
+  }
+
+
+
+
+
+
+
+
