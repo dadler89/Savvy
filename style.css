@@ -6,8 +6,8 @@
   grid-template-areas:
     "sidebar main main main"
     "sidebar main main main"
-    "sidebar grid-item1 grid-item2 grid-item3"
-    "sidebar grid-item4 grid-item5 grid-item6";
+    "sidebar grid-item1 grid-item1 grid-item1"
+    "sidebar grid-item2 grid-item2 grid-item2";
   background-color: #0069cc;
   padding: 10px;
 }
@@ -129,21 +129,21 @@ header > a {
 
 /* GRID CONTENT AREA */
 
-#grid-item1 {
+#homeTeam {
   grid-area: grid-item1;
   background: #0069cc;
 }
 
-#grid-item1:hover {
+#homeTeam:hover {
   border: 3px solid #dda448;
 }
 
-#grid-item2 {
+#awayTeam {
   grid-area: grid-item2;
   background: #0069cc;
 }
 
-#grid-item2:hover {
+#awayTeam:hover {
   border: 3px solid #dda448;
 }
 

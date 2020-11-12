@@ -1,7 +1,7 @@
 export default () => `<main>
 <div class="container">
         <div id="sidebar">
-    <p>Score Board</p>
+    <p>Score Board <br> No <br> Games <br> Tonight</p>
   </div>
 
     <div class="mainTop">

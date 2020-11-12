@@ -37,7 +37,7 @@ app.use(express.json());
 //   res.send('One day Hockey stuff will be here')
 // })
 
-app.get('/hockey', (req, res) => {
+app.get('/api/hockey', (req, res) => {
   db.collection('dates').find().toArray((err, result) => {
     if (err) return console.log(err)
     res.send({info : result})
