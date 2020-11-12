@@ -127,6 +127,8 @@ header > a {
   margin-right: 5px;
   border: 3px solid #fcfff7;
   border-radius: 10px;
+  color: #dda448;
+  font-family: oswald;
 }
 
 /* GRID CONTENT AREA */
@@ -140,9 +142,9 @@ header > a {
   text-align: center;
 }
 
-#homeTeam:hover {
+/* #homeTeam:hover {
   border: 3px solid #b82200;
-}
+} */
 
 #awayTeam {
   grid-area: grid-item2;
@@ -153,9 +155,9 @@ header > a {
   text-align: center;
 }
 
-#awayTeam:hover {
+/* #awayTeam:hover {
   border: 3px solid #b82200;
-}
+} */
 
 #grid-item3 {
   grid-area: grid-item3;
@@ -241,13 +243,12 @@ a {
     grid-template-rows: 0.6fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
       "main"
-      "grid-item1"
-      "grid-item2"
-      "grid-item3"
-      "grid-item4"
-      "grid-item5"
-      "grid-item6";
-    background: #0069cc;
+      "homeTeam"
+      "homeTeam"
+      "homeTeam"
+      "AwayTeam"
+      "AwayTeam"
+      "AwayTeam";
   }
 }
 

@@ -1,15 +1,19 @@
 export default () => `<main>
 <div class="container">
+
         <div id="sidebar">
-    <p>Score Board <br> No <br> Games <br> Tonight</p>
+        <h2>Game Stats</h2>
+        <div id="scoreHome"></div>
+        <div id="scoreAway"></div>
   </div>
+
 
     <div class="mainTop">
     <input type="date" id="game-date" name="game-date" value='2020-09-07'
        min="2019-10-01" max="2020-09-28">
     <select id="chooseSeason">
     <option value="">--Please choose a Season--</option>
-    <option value="2020-playoff" selected>2020 Playoffs</option>
+    <option value="2020-playoff" >2020 Playoffs</option>
     <option value="2019-2020-regular" >2019-2020 Season</option>
 
     </select>
@@ -49,7 +53,7 @@ export default () => `<main>
     </select>
     <select id="chooseAway">
     <option value="">--Please choose Away Team--</option>
-    <option value="TBL" >Tampa Bay Lightening</option>
+    <option value="TBL" >Tampa Bay Lightning</option>
     <option value="NYI" >New York Islanders</option>
     <option value="ANA" >Anaheim Ducks</option>
     <option value="ARI" >Arizona Coyotes</option>
@@ -97,4 +101,8 @@ export default () => `<main>
   <template id="homeCard">
 
   </template>
+  <template id="scoreHome">
+
+  </template>
+
 </main>`;
