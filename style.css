@@ -113,6 +113,8 @@ header > a {
   text-align: center;
   font-family: oswald;
   border-radius: 50px;
+  display: flex;
+  align-items: center;
 }
 
 /* SCOREBOARD */
@@ -123,7 +125,7 @@ header > a {
   text-align: center;
   margin-top: 10px;
   margin-right: 5px;
-  border: 3px solid #dda448;
+  border: 3px solid #fcfff7;
   border-radius: 10px;
 }
 
@@ -132,19 +134,27 @@ header > a {
 #homeTeam {
   grid-area: grid-item1;
   background: #0069cc;
+  color: #dda448;
+  font-family: oswald;
+  padding: 5px;
+  text-align: center;
 }
 
 #homeTeam:hover {
-  border: 3px solid #dda448;
+  border: 3px solid #b82200;
 }
 
 #awayTeam {
   grid-area: grid-item2;
   background: #0069cc;
+  color: #dda448;
+  font-family: oswald;
+  padding: 5px;
+  text-align: center;
 }
 
 #awayTeam:hover {
-  border: 3px solid #dda448;
+  border: 3px solid #b82200;
 }
 
 #grid-item3 {
@@ -190,6 +200,11 @@ footer {
   padding: 30px;
   font-family: oswald;
   border-top: 10px solid #dda448;
+  color: #fcfff7;
+}
+
+a {
+  color: #dda448;
 }
 
 /* MEDIA MOBILE CONTENT */

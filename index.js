@@ -64,8 +64,6 @@ function getData(){
   const selectedSeason = document.getElementById('chooseSeason').value;
   console.log(selectedSeason);
 
-
-
     axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/${selectedSeason}/games/${selectedDate}-${selectedHomeTeam}-${selectedAwayTeam}/lineup.json`,
       {
         headers: {
@@ -75,28 +73,45 @@ function getData(){
           position: 'Goalie-Starter'
           }
       }
-
       )
       .then(response => {
         console.log(response.data)
         /// hide the error if request is valid
         const gameData = response.data;
         const homeGoalie = gameData.teamLineups[0].actual.lineupPositions[0].player;
+        const homeGoalieRef = gameData.references.playerReferences[0]
+        const awayGoalieRef= gameData.references.playerReferences[1]
         const awayGoalie = gameData.teamLineups[1].actual.lineupPositions[0].player;
         const homeTeamElement = document.getElementById('homeTeam');
         console.log(homeTeamElement);
         const awayTeamElement = document.getElementById('awayTeam');
-        homeTeamElement.innerText = `${homeGoalie.firstName} ${homeGoalie.lastName}`
+        const cardHome = document.createElement("div");
+        const cardAway = document.createElement("div");
+        cardHome.innerHTML = `<div>
+        <h2>Starting Home Goalie : ${homeGoalie.firstName} ${homeGoalie.lastName} </h2>
+        <br>
+        <h3> Jersey Number : ${homeGoalieRef.jerseyNumber} </h3>
+        <h3> Age : ${homeGoalieRef.age} </h3>
+        <h3> Birthplace : ${homeGoalieRef.birthCity}, ${homeGoalieRef.birthCountry} </h3>
+        <h3> Height : ${homeGoalieRef.height} </h3>
+        <h3> Age : ${homeGoalieRef.age} </h3>
 
-        awayTeamElement.innerText = `${awayGoalie.firstName} ${awayGoalie.lastName}`
+        </div>`;
+        homeTeamElement.appendChild(cardHome);
 
+        cardAway.innerHTML = `<div>
+        <h2>Starting Away Goalie : ${awayGoalie.firstName} ${awayGoalie.lastName} </h2>
+        <br>
+        <h3> Jersey Number : ${awayGoalieRef.jerseyNumber} </h3>
+        <h3> Age : ${awayGoalieRef.age} </h3>
+        <h3> Birthplace : ${awayGoalieRef.birthCity}, ${awayGoalieRef.birthCountry} </h3>
+        <h3> Height : ${awayGoalieRef.height} </h3>
+        <h3> Age : ${awayGoalieRef.age} </h3>
+
+        </div>`;
+        awayTeamElement.appendChild(cardAway);
     }).catch(err =>{
       console.log(err);
-      // create error element for html set display === none
-      // get element by id for error element
-      // set display to === block
-      // hide error if selection is valid
-
     })
   }
 
