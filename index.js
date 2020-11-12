@@ -46,14 +46,6 @@ function addEventListener(){
 }
 
 
-// axios.get(`http://localhost:8675/hockey`).then(response => {
-//   console.log(response.data.info)});
-  // loop over data and display each game in html
-  // for each game create click handler that passes in game id
-  // click handler should display roster using game id to fetch data from msf
-
-let gameList = []
-
 function getData(){
   const selectedHomeTeam = document.getElementById('chooseHome').value;
   console.log(selectedHomeTeam);
