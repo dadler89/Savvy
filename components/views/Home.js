@@ -85,17 +85,27 @@ export default () => `<main>
     <option value="WPG" >Winnipeg Jets</option>
     <option value="WSH" >Washington Capitols</option>
     </select>
+    <div>
     <button id="submitButton">Submit</button>
+    <div>
+    <input id="playerNumber" type="number" value="42" min="0" max="1047">
+<button id="submitLineupButton">Submit</button>
+</div>
+</div>
+
+</div>
 
 
-
-    </div>
 
 
   <div id="homeTeam">
 
   </div>
   <div id="awayTeam">
+
+  </div>
+  <div id="selectedPlayerStat">
+
 
   </div>
   <template id="homeCard">

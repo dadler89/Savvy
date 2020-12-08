@@ -20,6 +20,9 @@ function render(st = state.Home) {
   addEventListener();
   addNavEventListeners();
   addScoreEventListener();
+  addPlayerEventListener()
+
+
 }
 
 render(state.Home);
@@ -98,7 +101,7 @@ function getData(){
         width="50"
         height="50"
       />
-        <h3> Age : ${homeGoalieRef.age} </h3>
+
         <h3> Birthplace : ${homeGoalieRef.birthCity}, ${homeGoalieRef.birthCountry} </h3>
         <h3> Height : ${homeGoalieRef.height} </h3>
         <h3> Age : ${homeGoalieRef.age} </h3>
@@ -118,7 +121,7 @@ function getData(){
         width="50"
         height="50"
       />
-        <h3> Age : ${awayGoalieRef.age} </h3>
+
         <h3> Birthplace : ${awayGoalieRef.birthCity}, ${awayGoalieRef.birthCountry} </h3>
         <h3> Height : ${awayGoalieRef.height} </h3>
         <h3> Age : ${awayGoalieRef.age} </h3>
@@ -194,4 +197,68 @@ function getScore (){
       }
 
 
+  //       axios.get(`http://localhost:8675/api/hockey/`,
+  // )
+  // .then(response => {
+  //   const scheduleData = response.data;
+  //   console.log(scheduleData);
+  //   const gamesArr = scheduleData.info[0].games[100].schedule.id
+  //   console.log(gamesArr);
+  // } );
 
+
+  function addPlayerEventListener(){
+    document.getElementById('submitLineupButton')
+    .addEventListener("click", () => getPlayerStats());
+  }
+
+function getPlayerStats() {
+
+  const selectedPlayer = document.getElementById('playerNumber').value;
+  console.log(selectedPlayer);
+  axios.get(`http://localhost:8675/api/playerStats/`,
+  )
+  .then(response => {
+    const statsData = response.data;
+    console.log(statsData);
+    const playerStats = statsData.info[0].playerStatsTotals[`${selectedPlayer}`]
+    console.log(playerStats);
+     const playerStatElement = document.getElementById('homeTeam')
+     const playerCard = document.createElement("div");
+     playerStatElement.innerHTML = '';
+     playerCard.innerHTML = `<h2> Seasonal Player Stats </h2>
+     <img
+        src="${playerStats.player.officialImageSrc.split("https").join("http")}"
+        alt="Daily"
+
+
+
+        width="50"
+        height="50"
+      />
+     <h3> Name : ${playerStats.player.firstName} ${playerStats.player.lastName}</h3>
+     <h3> Games Played : ${playerStats.stats.gamesPlayed}
+     <h3> Goals : ${playerStats.stats.scoring.goals}</h3>
+     <h3> Assists : ${playerStats.stats.scoring.assists}</h3>
+     <h3> SOG: ${playerStats.stats.skating.shots}</h3>
+     <h3> Hits : ${playerStats.stats.skating.hits}</h3>
+     <h3> Blocks : ${playerStats.stats.skating.blockedShots}</h3>
+     <h3> PIM : ${playerStats.stats.penalties.penaltyMinutes}</h3>
+    `;
+     playerStatElement.appendChild(playerCard);
+
+
+  } )
+}
+
+;
+
+// axios.get(`http://localhost:8675/api/playerStats/`,
+// )
+// .then(response => {
+//   const statsData = response.data;
+//   console.log(statsData);
+//   const playerStats = statsData.info[0].playerStatsTotals[950]
+//   console.log(playerStats);
+
+// } )

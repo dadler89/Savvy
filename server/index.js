@@ -32,9 +32,17 @@ app.get('/api/hockey', (req, res) => {
   })
 })
 
+app.get('/api/playerStats', (req, res) => {
+  db.collection('playerStats').find().toArray((err, result) => {
+    if (err) return console.log(err)
+    res.send({info : result})
+  })
+})
+
+
 app.listen(8675, () => console.log('Listening on port 8675'));
 
-// const hockeyData = msf.getData( 'nhl', '2019-2020-regular', 'game_lineup', 'json', {game: `51910`, position:"Goalie-Starter"});
+// const hockeyData = msf.getData( 'nhl', '2019-2020-regular', 'seasonal_player_stats', 'json', {});
 // console.log(hockeyData);
 
 
