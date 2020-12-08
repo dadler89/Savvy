@@ -7,10 +7,7 @@ const MySportsFeeds = require("mysportsfeeds-node");
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config();
 
-let port = process.env.PORT;
-if(port == null || port == ""){
-  port = 8000
-}
+
 let db
 
 const con = MongoClient.connect(`${process.env.MOGOPASS}`, (err, database) => {
@@ -43,7 +40,7 @@ app.get('/api/playerStats', (req, res) => {
 })
 
 
-app.listen(port, () => console.log('Server has successfully started'));
+app.listen(8675, () => console.log('Server has successfully started'));
 
 // const hockeyData = msf.getData( 'nhl', '2019-2020-regular', 'seasonal_player_stats', 'json', {});
 // console.log(hockeyData);
