@@ -88,7 +88,7 @@ export default () => `<main>
     <div>
     <button id="submitButton">Submit</button>
     <div>
-    <input id="playerNumber" type="number" value="42" min="0" max="1047">
+    <input id="playerNumber" type="number" value="000" min="0" max="1047">
 <button id="submitLineupButton">Submit</button>
 </div>
 </div>

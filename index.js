@@ -8,7 +8,14 @@ import "cors"
 
 const router = new Navigo(window.location.origin);
 
-function render(st = state.Home) {
+router
+  .on({
+    "/": () => render(state.Home),
+    ":page": params => render(state[capitalize(params.page)]),
+  })
+  .resolve();
+
+function render(st = state.page) {
   document.querySelector("#root").innerHTML = `
   ${Header(st)}
   ${Nav(state.Links)}
@@ -27,12 +34,7 @@ function render(st = state.Home) {
 
 render(state.Home);
 
-router
-  .on({
-    "/": () => render(state.Home),
-    ":page": params => render(state[capitalize(params.page)]),
-  })
-  .resolve();
+
 
 
   function addNavEventListeners() {
@@ -56,6 +58,7 @@ function addScoreEventListener(){
 
 
 function getData(){
+  if (state.page === "Home"){
   const selectedHomeTeam = document.getElementById('chooseHome').value;
   console.log(selectedHomeTeam);
   const selectedAwayTeam = document.getElementById('chooseAway').value;
@@ -132,6 +135,7 @@ function getData(){
     }).catch(err =>{
       console.log(err);
     })
+  }
   }
 
 function getScore (){
@@ -253,12 +257,10 @@ function getPlayerStats() {
 
 ;
 
-// axios.get(`http://localhost:8675/api/playerStats/`,
+// axios.get(`http://localhost:8675/api/fhfstats`,
 // )
 // .then(response => {
-//   const statsData = response.data;
-//   console.log(statsData);
-//   const playerStats = statsData.info[0].playerStatsTotals[950]
-//   console.log(playerStats);
+//   const fhfhData = response.data;
+//   console.log('fhfh', fhfhData);
 
 // } )

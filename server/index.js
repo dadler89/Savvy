@@ -39,8 +39,18 @@ app.get('/api/playerStats', (req, res) => {
   })
 })
 
+app.get('/api/fhfstats', (req, res) => {
+  db.collection('fhfhstats').find().toArray((err, result) => {
+    if (err) return console.log(err)
+    res.send({info : result})
+  })
+})
+ let port  = process.env.PORT;
+ if(port == null || port == ""){
+   port = 8675
+}
 
-app.listen(8675, () => console.log('Server has successfully started'));
+app.listen(port, () => console.log('Server has successfully started'));
 
 // const hockeyData = msf.getData( 'nhl', '2019-2020-regular', 'seasonal_player_stats', 'json', {});
 // console.log(hockeyData);
