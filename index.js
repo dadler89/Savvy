@@ -220,7 +220,7 @@ function getPlayerStats() {
 
   const selectedPlayer = document.getElementById('playerNumber').value;
   console.log(selectedPlayer);
-  axios.get(`https://mighty-crag-99403.herokuapp.com/api/hockey`,
+  axios.get(`https://mighty-crag-99403.herokuapp.com/api/playerStats`,
   )
   .then(response => {
     const statsData = response.data;
