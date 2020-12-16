@@ -1,4 +1,4 @@
 export default [
-  { title: "Home", text: "Player Stats" },
-  { title: "Lineup", text: "Starting Line-up" }
+  { title: "Home", text: "Goalie Starts" },
+  { title: "Lineup", text: "Player Stats" }
 ];
