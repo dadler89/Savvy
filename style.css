@@ -18,12 +18,18 @@
   grid-template-columns: 0.7fr 1.1fr 1.1fr 1fr;
   grid-template-rows: 1.1fr 1.2fr 1.4fr 1.4fr;
   grid-template-areas:
-    "sidebarLeft content content content"
+    "sidebarLeft content1 content1 content1"
     "sidebarLeft content content content"
     "sidebarLeft content content content"
     "sidebarLeft content content content";
   background-color: #0069cc;
+
   padding: 10px;
+}
+
+.lineupDiv {
+  grid-area: content1;
+  text-align: center;
 }
 
 .sidebarLeft {
@@ -41,6 +47,18 @@
   float: right;
   grid-area: content;
   margin-left: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+#lineupCard {
+  background: #0069cc;
+  color: #dda448;
+  font-family: oswald;
+  padding: 5px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 /* HEADER AND SEARCH BAR */

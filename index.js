@@ -213,11 +213,14 @@ function getScore (){
 
 
   function addPlayerEventListener(view = {}){
-    if(view === state.Lineup){
-    document.getElementById('submitLineupButton')
+    if(view === state.Lineup && document.readyState === "complete"){
+    document.getElementById('lineupButton')
     .addEventListener("click", () => getPlayerStats());
+    }else{
+
     }
   }
+
 
 function getPlayerStats() {
 
@@ -230,7 +233,7 @@ function getPlayerStats() {
     console.log(statsData);
     const playerStats = statsData.info[0].playerStatsTotals[`${selectedPlayer}`]
     console.log(playerStats);
-     const playerStatElement = document.getElementById('lineupContent')
+     const playerStatElement = document.getElementById('lineupCard')
      const playerCard = document.createElement("div");
      playerStatElement.innerHTML = '';
      playerCard.innerHTML = `<h2> Seasonal Player Stats </h2>
