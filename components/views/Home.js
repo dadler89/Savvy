@@ -12,11 +12,12 @@ export default () => `<main>
 
     <div>
     <input type="date" id="game-date" name="game-date" value='2020-09-07'
-    min="2019-10-01" max="2020-09-28">
+    min="2019-10-01" max="2021-09-28">
  <select id="chooseSeason">
  <option value="">--Please choose a Season--</option>
  <option value="2020-playoff" >2020 Playoffs</option>
  <option value="2019-2020-regular" >2019-2020 Season</option>
+ <option value="2020-2021-regular">2021 Season</option>
 
  </select>
  <select id="chooseHome">
@@ -35,7 +36,7 @@ export default () => `<main>
  <option value="DAL" >Dallas Stars</option>
  <option value="DET" >Detroit Red Wings</option>
  <option value="EDM" >Edmonton Oilers</option>
- <option value="FLA" >Florida Panthers</option>
+ <option value="FLO" >Florida Panthers</option>
  <option value="LAK" >Los Angeles Kings</option>
  <option value="MIN" >Minnesota Wild</option>
  <option value="MTL" >Montreal Canadiens</option>
@@ -50,7 +51,7 @@ export default () => `<main>
  <option value="TOR" >Toronto Maple Leafs</option>
  <option value="VAN" >Vancouver Canucks</option>
  <option value="VGK" >Vegas Golden Knights</option>
- <option value="WPG" >Winnipeg Jets</option>
+ <option value="WPJ" >Winnipeg Jets</option>
  <option value="WSH" >Washington Capitols</option>
  </select>
  <select id="chooseAway">
@@ -69,7 +70,7 @@ export default () => `<main>
  <option value="DAL" >Dallas Stars</option>
  <option value="DET" >Detroit Red Wings</option>
  <option value="EDM" >Edmonton Oilers</option>
- <option value="FLA" >Florida Panthers</option>
+ <option value="FLO" >Florida Panthers</option>
  <option value="LAK" >Los Angeles Kings</option>
  <option value="MIN" >Minnesota Wild</option>
  <option value="MTL" >Montreal Canadiens</option>
@@ -84,7 +85,7 @@ export default () => `<main>
  <option value="TOR" >Toronto Maple Leafs</option>
  <option value="VAN" >Vancouver Canucks</option>
  <option value="VGK" >Vegas Golden Knights</option>
- <option value="WPG" >Winnipeg Jets</option>
+ <option value="WPJ" >Winnipeg Jets</option>
  <option value="WSH" >Washington Capitols</option>
  </select>
  <div>
