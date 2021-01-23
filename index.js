@@ -224,21 +224,31 @@ function getScore (){
 
 function getPlayerStats() {
 
-  const selectedPlayer = document.getElementById('playerNumber').value;
+  const selectedPlayer = document.getElementById('choosePlayer').value;
   console.log(selectedPlayer);
-  axios.get(`https://mighty-crag-99403.herokuapp.com/api/playerStats`,
+  axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2019-2020-regular/player_stats_totals.json`,
+  {
+    headers: {
+      Authorization: `Basic ${process.env.MSFAPI}`
+      },
+    params: {
+      player: `${selectedPlayer}`
+      }
+  }
   )
   .then(response => {
     const statsData = response.data;
     console.log(statsData);
-    const playerStats = statsData.info[0].playerStatsTotals[`${selectedPlayer}`]
+    const playerStats = statsData.playerStatsTotals[0].stats
     console.log(playerStats);
+    const playerRef = statsData.references.playerReferences[0]
+    console.log(playerRef)
      const playerStatElement = document.getElementById('lineupCard')
      const playerCard = document.createElement("div");
      playerStatElement.innerHTML = '';
      playerCard.innerHTML = `<h2> Seasonal Player Stats </h2>
      <img
-        src="${playerStats.player.officialImageSrc.split("https").join("http")}"
+        src="${playerRef.officialImageSrc.split("https").join("http")}"
         alt="Daily"
 
 
@@ -246,14 +256,14 @@ function getPlayerStats() {
         width="50"
         height="50"
       />
-     <h2> ${playerStats.player.firstName} ${playerStats.player.lastName}</h2>
-     <h3> Games Played : ${playerStats.stats.gamesPlayed}
-     <h3> Goals : ${playerStats.stats.scoring.goals}</h3>
-     <h3> Assists : ${playerStats.stats.scoring.assists}</h3>
-     <h3> SOG: ${playerStats.stats.skating.shots}</h3>
-     <h3> Hits : ${playerStats.stats.skating.hits}</h3>
-     <h3> Blocks : ${playerStats.stats.skating.blockedShots}</h3>
-     <h3> PIM : ${playerStats.stats.penalties.penaltyMinutes}</h3>
+     <h2> ${playerRef.firstName} ${playerRef.lastName}</h2>
+     <h3> Games Played : ${playerStats.gamesPlayed}
+     <h3> Goals : ${playerStats.scoring.goals}</h3>
+     <h3> Assists : ${playerStats.scoring.assists}</h3>
+     <h3> SOG: ${playerStats.skating.shots}</h3>
+     <h3> Hits : ${playerStats.skating.hits}</h3>
+     <h3> Blocks : ${playerStats.skating.blockedShots}</h3>
+     <h3> PIM : ${playerStats.penalties.penaltyMinutes}</h3>
     `;
      playerStatElement.appendChild(playerCard);
 
