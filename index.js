@@ -272,6 +272,38 @@ function getPlayerStats() {
 }
 
 ;
+var rightNow = new Date();
+var res = rightNow.toISOString().slice(0,10).replace(/-/g,"");
+
+console.log(res);
+
+
+// function getGameScores() {
+
+//   axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-regular/date/${res}/games.json?current`,
+//   {
+//     headers: {
+//       Authorization: `Basic ${process.env.MSFAPI}`
+//       }
+//   }
+//   )
+//   .then(response => {
+//     const boxScoreData = response.data;
+//     console.log(boxScoreData);
+//     const homeBoxScore = boxScoreData
+//     boxScoreData.games.forEach((game) => {
+//      console.log(game.schedule.awayTeam, game.schedule.homeTeam)
+//     })
+//   })
+// }
+// getGameScores();
+
+
+
+
+
+
+
 
 
 

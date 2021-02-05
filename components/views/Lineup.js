@@ -1057,8 +1057,10 @@ export default () => `
  <select>
 <button id="lineupButton">Submit</button>
 </div>
+<div id="playerBox"
 <div id="lineupContent">
 <div id="lineupCard">
+</div>
 </div>
 </div>
 </section>
