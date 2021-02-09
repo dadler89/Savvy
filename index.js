@@ -27,7 +27,7 @@ function render(st = state.Home) {
   addEventListener(st);
   addNavEventListeners();
   addScoreEventListener(st);
-  addPlayerEventListener(state.Lineup)
+  addPlayerEventListener()
 
 
 }
@@ -61,19 +61,26 @@ function addScoreEventListener(view = {}){
     }
 };
 
+function addPlayerEventListener(view = {}){
+  if(view === state.Lineup && document.readyState === "complete"){
+  document.getElementById('lineupButton')
+  .addEventListener("click", () => getPlayerStats());
+  }
+}
+
 
 
 function getData(){
 
 
   const selectedHomeTeam = document.getElementById('chooseHome').value;
-  console.log(selectedHomeTeam);
+  // console.log(selectedHomeTeam);
   const selectedAwayTeam = document.getElementById('chooseAway').value;
-  console.log(selectedAwayTeam);
+  // console.log(selectedAwayTeam);
   const selectedDate = document.getElementById('game-date').value.split("-").join("");
-  console.log(selectedDate);
+  // console.log(selectedDate);
   const selectedSeason = document.getElementById('chooseSeason').value;
-  console.log(selectedSeason);
+  // console.log(selectedSeason);
 
     axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/${selectedSeason}/games/${selectedDate}-${selectedHomeTeam}-${selectedAwayTeam}/lineup.json`,
       {
@@ -212,14 +219,7 @@ function getScore (){
 
 
 
-  function addPlayerEventListener(view = {}){
-    if(view === state.Lineup && document.readyState === "complete"){
-    document.getElementById('lineupButton')
-    .addEventListener("click", () => getPlayerStats());
-    }else{
 
-    }
-  }
 
 
 function getPlayerStats() {
@@ -278,25 +278,34 @@ var res = rightNow.toISOString().slice(0,10).replace(/-/g,"");
 console.log(res);
 
 
-// function getGameScores() {
+function getGameScores() {
 
-//   axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-regular/date/${res}/games.json?current`,
-//   {
-//     headers: {
-//       Authorization: `Basic ${process.env.MSFAPI}`
-//       }
-//   }
-//   )
-//   .then(response => {
-//     const boxScoreData = response.data;
-//     console.log(boxScoreData);
-//     const homeBoxScore = boxScoreData
-//     boxScoreData.games.forEach((game) => {
-//      console.log(game.schedule.awayTeam, game.schedule.homeTeam)
-//     })
-//   })
-// }
-// getGameScores();
+  axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-regular/date/${res}/games.json?current`,
+  {
+    headers: {
+      Authorization: `Basic ${process.env.MSFAPI}`
+      }
+  }
+  )
+  .then(response => {
+    const boxScoreData = response.data;
+    console.log(boxScoreData);
+    const homeBoxScore = boxScoreData.games.score
+    const boxScoreElement = document.getElementById('boxScoreDiv')
+    boxScoreData.games.forEach((game) => {
+      var boxScoreCard = document.createElement("div");
+      boxScoreCard.innerHTML = `
+  <h7> ${game.schedule.homeTeam.abbreviation}  vs ${game.schedule.awayTeam.abbreviation} </h7>
+  <br>
+  <h8> ${game.score.homeScoreTotal} -  ${game.score.awayScoreTotal}  </h8>
+
+
+    `
+    boxScoreElement.appendChild(boxScoreCard);
+    })
+  })
+}
+getGameScores();
 
 
 

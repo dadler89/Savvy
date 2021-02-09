@@ -2,9 +2,9 @@ export default () => `<main>
 <div class="container">
 
         <div id="sidebar">
-        <h2>Game Stats</h2>
-        <div id="scoreHome"></div>
-        <div id="scoreAway"></div>
+        <h2>Box Score</h2>
+        <div id="boxScoreDiv"></div>
+
   </div>
 
 
