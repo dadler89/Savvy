@@ -272,15 +272,18 @@ function getPlayerStats() {
 }
 
 ;
-var rightNow = new Date();
-var res = rightNow.toISOString().slice(0,10).replace(/-/g,"");
-
-console.log(res);
+var x = new Date();
+var y = x.getFullYear().toString();
+var m = (x.getMonth() + 1).toString();
+var d = x.getDate().toString();
+(d.length == 1) && (d = '0' + d);
+(m.length == 1) && (m = '0' + m);
+var yyyymmdd = y + m + d;
 
 
 function getGameScores() {
 
-  axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-regular/date/${res}/games.json?current`,
+  axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-regular/date/${yyyymmdd}/games.json?current`,
   {
     headers: {
       Authorization: `Basic ${process.env.MSFAPI}`
