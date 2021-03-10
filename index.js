@@ -27,7 +27,7 @@ function render(st = state.Home) {
   addEventListener(st);
   addNavEventListeners();
   addScoreEventListener(st);
-  addPlayerEventListener()
+  addPlayerEventListener(state.Lineup)
 
 
 }
@@ -61,12 +61,7 @@ function addScoreEventListener(view = {}){
     }
 };
 
-function addPlayerEventListener(view = {}){
-  if(view === state.Lineup && document.readyState === "complete"){
-  document.getElementById('lineupButton')
-  .addEventListener("click", () => getPlayerStats());
-  }
-}
+
 
 
 
@@ -93,7 +88,7 @@ function getData(){
       }
       )
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         /// hide the error if request is valid
         const gameData = response.data;
         const homeGoalie = gameData.teamLineups[0].actual.lineupPositions[0].player;
@@ -101,7 +96,7 @@ function getData(){
         const awayGoalieRef= gameData.references.playerReferences[1]
         const awayGoalie = gameData.teamLineups[1].actual.lineupPositions[0].player;
         const homeTeamElement = document.getElementById('homeTeam');
-        console.log(homeTeamElement);
+        // console.log(homeTeamElement);
         const awayTeamElement = document.getElementById('awayTeam');
         const cardHome = document.createElement("div");
         const cardAway = document.createElement("div");
@@ -219,6 +214,13 @@ function getScore (){
 
 
 
+      function addPlayerEventListener(view = {}){
+        if(view === state.Lineup && document.readyState === "complete"){
+        document.getElementById('lineupButton')
+        .addEventListener("click", () => getPlayerStats());
+        }
+      }
+
 
 
 
@@ -238,11 +240,11 @@ function getPlayerStats() {
   )
   .then(response => {
     const statsData = response.data;
-    console.log(statsData);
+    // console.log(statsData);
     const playerStats = statsData.playerStatsTotals[0].stats
-    console.log(playerStats);
+    // console.log(playerStats);
     const playerRef = statsData.references.playerReferences[0]
-    console.log(playerRef)
+    // console.log(playerRef)
      const playerStatElement = document.getElementById('lineupCard')
      const playerCard = document.createElement("div");
      playerStatElement.innerHTML = '';
@@ -281,7 +283,7 @@ let d = x.getDate().toString();
 let yyyymmdd = y + m + d;
 
 
-function getGameScores() {
+function getGameScores(view = {}) {
 
   axios.get(`https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-regular/date/${yyyymmdd}/games.json?current`,
   {
@@ -292,7 +294,7 @@ function getGameScores() {
   )
   .then(response => {
     const boxScoreData = response.data;
-    console.log(boxScoreData);
+    // console.log(boxScoreData);
     const homeBoxScore = boxScoreData.games.score
     const boxScoreElement = document.getElementById('boxScoreDiv')
     boxScoreData.games.forEach((game) => {
@@ -300,7 +302,9 @@ function getGameScores() {
       boxScoreCard.innerHTML = `
   <h7> ${game.schedule.homeTeam.abbreviation}  vs ${game.schedule.awayTeam.abbreviation} </h7>
   <br>
-  <h8> ${game.score.homeScoreTotal} -  ${game.score.awayScoreTotal}  </h8>
+  <h8> ${game.score.homeScoreTotal} - ${game.score.awayScoreTotal}  </h8>
+  <br>
+  <h8> ${game.score.homeShotsTotal} SOG ${game.score.awayShotsTotal} </h8>
 
 
     `

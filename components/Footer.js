@@ -9,18 +9,7 @@ export default () => `<footer>
 
 </div>
 <div class="contactUs">
-<form action="https://formspree.io/f/mrgoezyr" method="POST">
-  <input type="text" name="name" placeholder="Name..." />
-  <input type="email" name="_replyto" placeholder="E-mail..." />
-  <br>
-  <label>
-
-  <textarea name="message" placeholder="Your Message..."></textarea>
-</label>
-<br>
-  <input type="submit" value="Contact Us" />
-
-</form>
+<a href="https://glacial-plains-51204.herokuapp.com">Sign Up For Updates!</a>
 </div>
 <div class="findMe">
 <h3>Find Me<h3>

@@ -11,7 +11,7 @@ export default () => `<main>
     <div class="mainTop">
 
     <div>
-    <input type="date" id="game-date" name="game-date" value='2020-09-07'
+    <input type="date" id="game-date" name="game-date" value=''
     min="2019-10-01" max="2021-09-28">
  <select id="chooseSeason">
  <option value="">--Please choose a Season--</option>
